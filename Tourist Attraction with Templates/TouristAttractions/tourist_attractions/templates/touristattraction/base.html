@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <header>
+        {% block head %}
+        {% endblock %}
+    </header>
+
+    {% block content %}
+    <a href="{% url 'home' %}">Take me home</a>
+    {% endblock %}
+</body>
+
+</html>

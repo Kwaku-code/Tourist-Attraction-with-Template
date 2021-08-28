@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+
+    {% load static %}
+    <h1>This is a list of attractions in America!</h1>
+    <table>
+        <tr>
+            <th>Attraction</th>
+            <th>State</th>
+            <th>State details</th>
+        </tr>
+        {% for item in attractions|dictsort:"state" %}
+        <tr>
+            <td>{{item.attraction_name}}</td>
+            <td>{{item.state}}</td>
+            <td><a href="{% url 'details' item.state|slugify %}">Link</a></td>
+        </tr>
+        {% endfor %}
+        <!--  {% for item in attractions|dictsort:"attraction" %}
+    <tr>
+     <td>{{item.attraction_name}}</td> -->
+        <!-- <td>{{item.state}}</td>
+     <td><a href="{% url 'details' statename|slugify %}">Link</a></td> 
+    </tr> -->
+        <!-- </tr> -->
+        <!-- {% endfor %} -->
+
+    </table>
+
+    <link rel="stylesheet" href="{% static 'tourist_attractions/style.css' %}">
+
+    {% endblock %}
+</body>
